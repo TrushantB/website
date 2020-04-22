@@ -127,7 +127,7 @@ class WebApp extends React.Component {
                                                             <div className="col-md-6  mt-3" key={index}>
                                                                 <div className="h-100   layout-border p-3 br10 ">
                                                                     <h5> {item.title} </h5>
-                                                                    <p
+                                                                    <div
                                                                         dangerouslySetInnerHTML={{
                                                                         __html: item.content.childMarkdownRemark.html,
                                                                         }}
@@ -163,7 +163,7 @@ class WebApp extends React.Component {
                                                                     <div className="col-md-4  mt-3" key={index}>
                                                                         <div className="h-100   layout-border p-3 br10 ">
                                                                             <h5> {item.title} </h5>
-                                                                            <p
+                                                                            <div
                                                                                 dangerouslySetInnerHTML={{
                                                                                 __html: item.content.childMarkdownRemark.html,
                                                                                 }}
@@ -184,7 +184,7 @@ class WebApp extends React.Component {
                                                                                 })
                                                                             }
                                                                             <h5> {item.title} </h5>
-                                                                            <p
+                                                                            <div
                                                                                 dangerouslySetInnerHTML={{
                                                                                 __html: item.content.childMarkdownRemark.html,
                                                                                 }}
