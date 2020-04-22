@@ -151,7 +151,7 @@ class WebApp extends React.Component {
                                                     { post.content &&
                                                         <div className="col-12">
                                                             <div
-                                                            dangerouslySetInnerHTML={{ __html: `<div> ${post.content.childMarkdownRemark.html} </div>` }}
+                                                            dangerouslySetInnerHTML={{ __html:post.content.childMarkdownRemark.html }}
                                                             />
                                                         </div>
                                                     }

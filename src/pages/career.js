@@ -25,7 +25,7 @@ render() {
                               <div className="bg-white shadow-1 brb4 p-5 ">
                                  <div className="row">
                                   <div className="col-12">
-                                    <p
+                                    <div
                                         dangerouslySetInnerHTML={{
                                        __html: carrer.description.childMarkdownRemark.html,
                                          }}
