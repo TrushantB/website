@@ -10,10 +10,9 @@ import Slider from "react-slick";
 var settings = {
     dots: true,
     infinite: true,
-    autoplay:true,
-    speed: 2000,
-    // fade:true,
+    autoplay:false,
     autoplaySpeed:5000,
+    // fade:true,
     slidesToShow: 1,
     slidesToScroll: 1,
     arrows:false
@@ -29,7 +28,7 @@ class WebApp extends React.Component {
                     <div className="pagebanner pagebannerLess">
                         <div className="pagebannerMax">
                             <h1 className="white">{post.title} </h1>
-                            <h3 className="white mb-3">{post.tagline}</h3> 
+                            <h3 className="white mb-3">{post.tagline}</h3>
                             <div className="banner-icons" >
                                 {post.icons &&
                                     post.icons.map((item,index) => {
@@ -55,48 +54,43 @@ class WebApp extends React.Component {
                             </div>
                             <div className="row">
                                 <div className="col-12">
-                                    <div className="bg-white shadow-1 brb4 p-5 ">
-                                        { post.tool &&
-                                            <div className="row mb-3">
-                                                <div className="col-12">
-                                                    <strong>Tools:- </strong> 
-                                                    {post.tool}
-                                                </div>    
-                                            </div>
-                                        }
-                                        <div className="row">
-                                            <div className="col-12 font-large" >
-                                                <p
+                                    <div className="bg-white shadow-1 br4 p-5 overflow-hidden">
+                                        <div className="hero-text">
+                                                <div
                                                     dangerouslySetInnerHTML={{
                                                     __html: post.shortBio.childMarkdownRemark.html,
                                                     }}
                                                 />
-                                            </div>    
-                                        </div>
+                                                <div className="learn-more-btn">
+                                                <Link to="/contact/">Learn More</Link>
+                                                </div>
+                                            </div>
 
                                     {
                                       post.slider &&  <Slider {...settings}   >
                                           {
                                               post.slider.map((item) => {
                                                   return (
-                                                        <div className="container2">
-                                                            <Img className="img-responsive img-fluid" alt={item.title} sizes={item.sizes} />
-                                                     <h2>{item.title}</h2>
-                                                     <div className="top-left">{item.description}</div>
+                                                    <div className="slider-container">
+                                                    <Img className="img-responsive img-fluid" alt={item.title} sizes={item.sizes} />
+                                                    <div className="slider-content p-5">
+                                                      <h2 className="slider-title">{item.title}</h2>
+                                                      <div>{item.description}</div>
+                                                    </div>
                                                   </div>
                                                   )
                                               })
                                           }
-                                       </Slider> 
+                                       </Slider>
                                     }
 
                                         {/* paragraphHeading 1 for jam */}
                                         { post.slug==="jam-development" && post.paragraphHeading &&
-                                            <div className="mt-4"> 
+                                            <div className="mt-4">
                                                 <div className="row">
                                                     <div className="col-12">
-                                                        <h3> {post.paragraphHeading} </h3>          
-                                                    </div>    
+                                                        <h3> {post.paragraphHeading} </h3>
+                                                    </div>
                                                 </div>
                                                 <div className="row">
                                                     { post.cardPost.filter(data => data.categories==="what")
@@ -104,13 +98,13 @@ class WebApp extends React.Component {
                                                         return(
                                                         <div className="col-md-4  mt-3" key={index}>
                                                             <div className="h-100   layout-border p-3 br10 ">
-                                                                <h5> {item.title} </h5>          
+                                                                <h5> {item.title} </h5>
                                                                 <p
                                                                     dangerouslySetInnerHTML={{
                                                                     __html: item.content.childMarkdownRemark.html,
                                                                     }}
                                                                 />
-                                                            </div>    
+                                                            </div>
                                                         </div>
                                                         )
                                                     })
@@ -120,11 +114,11 @@ class WebApp extends React.Component {
                                         }
                                         {/* paragraphHeading2 for jam */}
                                         { post.slug==="jam-development" && post.paragraphHeading2 &&
-                                            <div className="mt-4"> 
+                                            <div className="mt-4">
                                                 <div className="row">
                                                     <div className="col-12">
-                                                        <h3> {post.paragraphHeading2} </h3>          
-                                                    </div>    
+                                                        <h3> {post.paragraphHeading2} </h3>
+                                                    </div>
                                                 </div>
                                                 <div className="row">
                                                     { post.cardPost.filter(data => data.categories==="why")
@@ -132,13 +126,13 @@ class WebApp extends React.Component {
                                                             return(
                                                             <div className="col-md-6  mt-3" key={index}>
                                                                 <div className="h-100   layout-border p-3 br10 ">
-                                                                    <h5> {item.title} </h5>          
+                                                                    <h5> {item.title} </h5>
                                                                     <p
                                                                         dangerouslySetInnerHTML={{
                                                                         __html: item.content.childMarkdownRemark.html,
                                                                         }}
                                                                     />
-                                                                </div>    
+                                                                </div>
                                                             </div>
                                                             )
                                                         })
@@ -150,11 +144,11 @@ class WebApp extends React.Component {
                                             <div className="mt-4">
                                                 <div className="row">
                                                     <div className="col-12">
-                                                        <h3> {post.paragraphHeading}</h3>          
-                                                    </div>    
+                                                        <h3> {post.paragraphHeading}</h3>
+                                                    </div>
                                                 </div>
                                                 <div className="row">
-                                                    { post.content && 
+                                                    { post.content &&
                                                         <div className="col-12">
                                                             <p
                                                             dangerouslySetInnerHTML={{
@@ -164,20 +158,20 @@ class WebApp extends React.Component {
                                                         </div>
                                                     }
                                                     {
-                                                        post.cardPost && 
+                                                        post.cardPost &&
                                                         post.cardPost.map((item,index) => {
                                                             if(!item.images) {
                                                                 return (
                                                                     <div className="col-md-4  mt-3" key={index}>
                                                                         <div className="h-100   layout-border p-3 br10 ">
-                                                                            <h5> {item.title} </h5>          
+                                                                            <h5> {item.title} </h5>
                                                                             <p
                                                                                 dangerouslySetInnerHTML={{
                                                                                 __html: item.content.childMarkdownRemark.html,
                                                                                 }}
                                                                             />
-                                                                        </div>    
-                                                                    </div>   
+                                                                        </div>
+                                                                    </div>
                                                                 )
                                                             }
                                                             else {
@@ -191,13 +185,13 @@ class WebApp extends React.Component {
                                                                                     )
                                                                                 })
                                                                             }
-                                                                            <h5> {item.title} </h5>          
+                                                                            <h5> {item.title} </h5>
                                                                             <p
                                                                                 dangerouslySetInnerHTML={{
                                                                                 __html: item.content.childMarkdownRemark.html,
                                                                                 }}
-                                                                            />    
-                                                                        </div>    
+                                                                            />
+                                                                        </div>
                                                                     </div>
                                                                 )
                                                             }
@@ -210,7 +204,7 @@ class WebApp extends React.Component {
                                 </div>
                             </div>
                         </div>
-                    </div>        
+                    </div>
                 </div>
             </Fade>
         </Layout>
@@ -278,7 +272,7 @@ export const pageQuery = graphql`
                 srcSetWebp
               }
               }
-              
+
           }
     }
   }
