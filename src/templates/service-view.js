@@ -150,7 +150,7 @@ class WebApp extends React.Component {
                                                 <div className="row">
                                                     { post.content &&
                                                         <div className="col-12">
-                                                            <p
+                                                            <div
                                                             dangerouslySetInnerHTML={{ __html: `<div> ${post.content.childMarkdownRemark.html} </div>` }}
                                                             />
                                                         </div>
