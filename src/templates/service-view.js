@@ -3,9 +3,21 @@ import { Link } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Fade from 'react-reveal/Fade';
-import Img from "gatsby-image"
-import { graphql } from "gatsby"
+import Img from "gatsby-image";
+import { graphql } from "gatsby";
+import Slider from "react-slick";
 
+var settings = {
+    dots: true,
+    infinite: true,
+    autoplay:true,
+    speed: 2000,
+    // fade:true,
+    autoplaySpeed:5000,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows:false
+  };
 class WebApp extends React.Component {
     render() {
         const post = this.props.data.contentfulServices;
@@ -61,6 +73,23 @@ class WebApp extends React.Component {
                                                 />
                                             </div>    
                                         </div>
+
+                                    {
+                                      post.slider &&  <Slider {...settings}   >
+                                          {
+                                              post.slider.map((item) => {
+                                                  return (
+                                                        <div className="container2">
+                                                            <Img className="img-responsive img-fluid" alt={item.title} sizes={item.sizes} />
+                                                     <h2>{item.title}</h2>
+                                                     <div className="top-left">{item.description}</div>
+                                                  </div>
+                                                  )
+                                              })
+                                          }
+                                       </Slider> 
+                                    }
+
                                         {/* paragraphHeading 1 for jam */}
                                         { post.slug==="jam-development" && post.paragraphHeading &&
                                             <div className="mt-4"> 
@@ -198,6 +227,17 @@ export const pageQuery = graphql`
         tagline
         tool
         paragraphHeading
+        slider {
+            sizes(maxWidth: 1180, background: "rgb:000000") {
+                ...GatsbyContentfulSizes_withWebp
+              }
+            id
+            title
+            description
+            file{
+              url
+            }
+          }
         shortBio{
           childMarkdownRemark{
             html
@@ -238,6 +278,7 @@ export const pageQuery = graphql`
                 srcSetWebp
               }
               }
+              
           }
     }
   }

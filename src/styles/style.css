@@ -450,3 +450,46 @@ box-shadow: 0 0 1px rgba(0,0,0,.06), 0 2px 6px rgba(0,0,0,.03);
         font-size: 70px;
         color: white;
     }
+
+    .container2 {
+        position: relative;
+        text-align: center;
+        color: white;
+      }
+      
+      /* Bottom left text */
+      .bottom-left {
+        position: absolute;
+        bottom: 8px;
+        left: 16px;
+      }
+      
+      /* Top left text */
+      .top-left {
+        position: absolute;
+        color: black;
+        top: 8px;
+        left: 16px;
+      }
+      
+      /* Top right text */
+      .top-right {
+        position: absolute;
+        top: 8px;
+        right: 16px;
+      }
+      
+      /* Bottom right text */
+      .bottom-right {
+        position: absolute;
+        bottom: 8px;
+        right: 16px;
+      }
+      
+      /* Centered text */
+      .centered {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
